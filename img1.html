@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>img1</title>
+    <script>
+        function getImagePreview(event){
+            var image = createObjectURL(event.target.files[0]);
+            var imgdiv = document.getElementById('preview');
+            var newimg = document.createElement('img');
+            imgdiv.innerHTML = '';
+            newimg.src = image;
+            newimg.width = 300;
+            // newimg.height = 300
+            imgdiv.append(newimg);
+
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+    <form>
+        <div class="form-group">
+            <input type="file" name="upload_file" class="form-control" 
+                placeholder="Enter Name" id="upload_file" onchange="getImagePreview(event)">
+            <div id="preview" ></div>
+        </div> 
+    </form>
+    </div>
+</body>
+</html>

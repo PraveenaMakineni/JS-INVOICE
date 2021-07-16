@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>color picker </title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+    <style>
+        .header{
+               background-color:blue;
+               width: 50%;
+               height: 50px;
+               margin: auto;
+         }
+         /* .column2{
+            padding-top: 10px;
+            font-size: medium;
+        }   */
+        #yellow{
+            background-color: gold;
+            width: 10%;
+            height: 10px;
+        }
+        #red{
+            background-color: red;
+            width: 10%;
+            height: 10px;
+        }
+        #grey{
+            background-color:grey;
+            width: 10%;
+            height: 10px;
+        }
+        #pink{
+            background-color:pink;
+            width: 10%;
+            height: 10px;
+        }
+        
+    </style>
+    <!-------------------------------------------------------------------------------->
+    <script>
+          var colors = document.getElementById('main')
+          let i;
+          for(i=0; i<colors.length; i++){
+              colors.addEventListener('click', funn)
+          }
+       function funn(){
+           let color = this.getAttribute('data-color');
+           document.document.style.setProperty('',color)
+       }       
+   
+     
+  
+    </script>
+</head>
+<body>
+    <div class="container">
+    <div class="header" id="main"></div>
+    <div class="row">
+        <div class="col-lg-8"></div>
+        <div class="col-lg-3 column2">
+            <button  id="yellow" data-color="gold;" onclick="funn()"></button>
+            <button  id="red"></button>
+            <button  id="grey"></button>
+            <button  id="pink"></button>
+        </div>
+    </div>
+</div><!---container--->
+</body>
+</html>
+
+

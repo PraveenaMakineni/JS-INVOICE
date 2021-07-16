@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FILE READER</title>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" ></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js"></script>
+
+    <script>
+        function fileread(this){
+             var input = input.files[0];
+             var filereader = new FileReader();
+             filereader.readAsDataURL(input);
+             filereader.onload = function(){
+            //    document.write(`${filreader.result}`);
+
+            }
+        }
+    </script>
+</head>
+<body>
+    <input type="file" onchange="fileread()">
+</body>
+</html>
