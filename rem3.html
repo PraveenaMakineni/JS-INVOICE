@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add&remove</title>
+    <style>
+        .invoiceBox{
+            background-color: grey;
+            padding: 10px;
+            box-shadow: 0 0 10px black;
+            margin: auto;
+        }
+        .input{
+            border:0;
+            box-shadow: none;
+            text-align: center;
+            /* margin: 5px; */
+        }
+        .form-inline{
+            text-align: center;
+            display: flex;
+        }
+        .form-group{
+             display:inline;
+             height: 20px;
+             width: 50%;
+        }
+        
+    </style>
+
+    <script>
+        //adds extra table rows
+       var i=$('#invoiceBox').length;
+$("#invoiceBox").on('click',function(){
+	html = '<tr>';
+	html += '<td><input class="case" type="checkbox"/></td>';
+	html += '<td><input type="text" data-type="productCode" name="itemNo[]" id="itemNo_'+i+'" class="form-control autocomplete_txt" autocomplete="off"></td>';
+	html += '<td><input type="text" data-type="productName" name="itemName[]" id="itemName_'+i+'" class="form-control autocomplete_txt" autocomplete="off"></td>';
+	html += '<td><input type="text" name="price[]" id="price_'+i+'" class="form-control changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"></td>';
+	html += '<td><input type="text" name="quantity[]" id="quantity_'+i+'" class="form-control changesNo" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"></td>';
+	html += '<td><input type="text" name="total[]" id="total_'+i+'" class="form-control totalLinePrice" autocomplete="off" onkeypress="return IsNumeric(event);" ondrop="return false;" onpaste="return false;"></td>';
+	html += '</tr>';
+	$('#invoiceBox').append(html);
+	i++;
+});
+
+//deletes the selected table rows
+$(".delete").on('click', function() {
+	$('.case:checkbox:checked').parents("tr").remove();
+	$('#check_all').prop("checked", false); 
+});
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+           <div class="col-md-12 invoiceBox" id="invoiceBox">
+               <div class="row">
+                   <div class="col-md-2"></div>
+                   <div class="col-md-8 column11">
+                       <div class="form-inline">
+                           <div class="form-group">
+                               <input type="text" id = "nameid1" class="form-control input" placeholder="Name">
+                           </div>
+                           <div class="form-group">
+                            <input type="text" id = "priceid1" class="form-control input" placeholder="Price"
+                            oninput="calculateSubTotal(1)">
+                           </div>
+                          <div class="form-group">
+                            <input type="text" id = "itemsid1" class="form-control input" placeholder="Items"
+                            oninput="calculateSubTotal(1)">
+                          </div>
+                          <div class="form-group">
+                            <input type="text" id = "discountid1" class="form-control input" placeholder="Discount"
+                            oninput="calculateSubTotal(1)">
+                        </div>
+    
+                          <div class="form-group subtotal">
+                              <h4 style="background-color: rgb(137, 204, 70);">SubTotal: 
+                                <span id="subtotalid1">0</span></h4>
+                        <!-- </div>
+                          <div id="iconn" oninput="rm()"><i class="bi bi-backspace-fill"></i>
+                        </div> -->
+    
+                        </div><!--form-inline-->
+                   </div><!---column11--->
+               </div><!---row-->
+               <br><br>
+    
+               <div class="row">
+                   <div class="col-md-9"></div>
+                   <div class="col-md-3">
+                       <input type="button" id="additem" class="btn" value="Add Item" style="background-color: crimson;"
+                            onclick="additeminInvoice()">
+                   </div>
+               </div>
+            </div><!--col-->
+        </div><!---row-->
+        </div>
+</body>
+</html>

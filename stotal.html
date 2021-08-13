@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>subtotal calcn old</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        $(function() {
+
+            $("#items").keyup(function(event) {
+            var total = 0;
+            $("#items .targetfields").each(function() {
+                // var name = parseInt($(this).find(".name").val());
+                var qty = parseInt($(this).find("#quantity").val());
+                var rate = parseInt($(this).find("#rate").val());
+                var subtotal  = qty * rate ;
+
+                //  var rateq  = qty * rate ;
+                //  var discount = parseInt($(this).find(".discount").value());
+                //  discount = rateq * (discount/100);
+                // var subtotal = rateq - discount;
+
+                $(this).find("#subtotal").val(subtotal);
+                if(!isNaN(subtotal))
+                    total+=subtotal;
+            });
+            $("#total").html(total);
+            });
+
+})
+    </script>
+</head>
+<body>
+    <table id="items">
+        <tr class="targetfields"> 
+
+            <td><input type="text" name="name" class="name" id="name" placeholder="Item name"/></td>
+            <td><input type="text" name="quantity" class="quantity" id="quantity" placeholder="items" /></td>
+            <td><input type="text" name="rate" class="rate" size="5" id="rate" placeholder="price" /></td>
+            <!-- <td><input type="text" name="discount" class="discount" size="5" placeholder="discount"/></td> -->
+            <td><input type="text" name="sub_total" class="subtotal" id="subtotal" placeholder="amount" /></td> 
+        </tr> 
+        <tr class="targetfields"> 
+            <td><input type="text" name="name" class="name" id="name" placeholder="Item name"/></td>
+            <td><input type="text" name="quantity" class="quantity"  id="quantity" placeholder="items" /></td>
+            <td><input type="text" name="rate" class="rate" size="5" id="rate" placeholder="price" /></td>
+            <!-- <td><input type="text" name="discount" class="discount" size="5" placeholder="discount"/></td> -->
+            <td><input type="text" name="sub_total" class="subtotal" id="subtotal" placeholder="amount" /></td> 
+        </tr> 
+    </table>
+    
+    total: <span id="total"></span>
+    
+</body>
+</html>

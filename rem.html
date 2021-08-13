@@ -1,0 +1,76 @@
+
+<!-- <script>
+  function calculateSubTotal(rowid){
+                
+    var totalrows = 1;
+    totalrows-=1;
+                $("#invoicebox").remove(            
+                `<div class="row">
+               <div class="col-md-2"></div>
+               <div class="col-md-8 column11">
+                   <div class="form-inline">
+                       <div class="form-group">
+                           <input type="text" id = "nameid${totalrows}" class="form-control input" placeholder="Name">
+                       </div>
+                       <div class="form-group">
+                        <input type="text" id = "priceid${totalrows}" class="form-control input" placeholder="Price"
+                               onkeyup="calculateSubTotal(${totalrows})">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" id = "itemsid${totalrows}" class="form-control input" placeholder="Items"
+                               onkeyup="calculateSubTotal(${totalrows})">
+                      </div>
+                      <div class="form-group">
+                        <input type="text" id = "discountid${totalrows}" class="form-control input" placeholder="Discount" size="8"
+                               onkeyup="calculateSubTotal(${totalrows})">
+                      </div>
+
+                      <div class="form-group subtotal">
+                          <h4 style="background-color: rgb(137, 204, 70);">SubTotal: <span id="subtotalid${totalrows}">0</span></h4>
+                      </div>
+                    </div>
+                      <div class="" id="iconn${totalrows}"><i class="bi bi-backspace-fill"></i>
+                    </div>
+
+                    </div><! --form-inline-->
+                <!-- </div><! ---column11--->
+           <!-- </div><! ---row-- ><br /><br />`   
+           )
+   }
+</script> --> 
+<!-----------------------------------------------------------------
+<script>
+$(document).ready(function(){
+  $("#iconn").click(function(){
+    $("#invoicebox").removeClass("invoicebox");
+  });
+});
+</script>
+<! ------------------------------------------------------------------->
+
+<!------------------------------------------------------------------->
+<!-- <script>
+    function rm(){
+        var x = document.getElementById("invoiceBox");
+            if(x.lenth>0){
+                x.remove(x.length-1);
+            }
+    }
+</script>
+
+<! -------------------------------------------------------------------> 
+<!------------------------------------------------------------------->
+<!-- <script>
+    var c = document.getElementById("invoiceBox");
+    c.parentNode.removeChild(c);
+</script>
+<! -------------------------------------------------------------------> 
+<!------------------------------------------------------------------->
+<script>
+    function removeItem(){
+        var m = document.getElementById("invoiceBox");
+        var item = document.getElementById(m.value);
+        m.removeChild(item);
+    }
+    </script>
+    <!------------------------------------------------------------------->
